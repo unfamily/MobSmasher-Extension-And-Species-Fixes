@@ -10,8 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * Quake immunity is based on: getAttackCooldown() (when != 0 it "shields") and pose ATTACK/RECHARGE (absorbs).
- * 1) Saw (MGUFakePlayer): instant kill, no immunity.
- * 2) Lethal damage (amount >= health) when config enabled: bypass immunity and apply damage so Quake dies.
+ * Saw (MGUFakePlayer): when config enabled, instant kill, no shield/absorb.
  */
 @Mixin(value = Quake.class, remap = false)
 public class QuakeMixin {
@@ -19,7 +18,7 @@ public class QuakeMixin {
     private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger("SpeciesFix/QuakeMixin");
 
     static {
-        LOGGER.info("[Species Fix] QuakeMixin loaded (Saw instant kill + lethal damage bypass active)");
+        LOGGER.info("[Species Fix] QuakeMixin loaded (Saw instant kill active)");
     }
 
     private static boolean isMobSmasherDamage(DamageSource source) {
@@ -40,15 +39,6 @@ public class QuakeMixin {
             cir.setReturnValue(true);
             cir.cancel();
             return;
-        }
-
-        // Lethal damage (>= current health): bypass immunity regardless of getAttackCooldown() or pose
-        if (net.unfamily.species_fix.Config.quakeLethalDamageKills && amount >= quake.getHealth()) {
-            float newHealth = quake.getHealth() - amount;
-            quake.setHealth(Math.max(0, newHealth));
-            if (quake.getHealth() <= 0) quake.die(damageSource);
-            cir.setReturnValue(true);
-            cir.cancel();
         }
     }
 }

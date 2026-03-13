@@ -14,10 +14,6 @@ public class Config
             .comment("When true, prevents crash when camera is null during Species screen shake (recommended: true).")
             .define("000_screenShakeFix", true);
 
-    private static final ForgeConfigSpec.BooleanValue QUAKE_LETHAL_DAMAGE_KILLS = BUILDER
-            .comment("When true, Quake dies if incoming damage would be lethal (damage >= health) instead of starting immunity/attack.")
-            .define("001_quakeLethalDamageKills", true);
-
     private static final ForgeConfigSpec.BooleanValue QUAKE_SAW_KILL = BUILDER
             .comment("When true, Quake is killed instantly when hit by Mob Grinding Utils Saw (FakePlayer), no immunity/parry.")
             .define("002_quakeSawKill", true);
@@ -26,8 +22,6 @@ public class Config
 
     /** Read by ScreenShakeEventMixin; true = apply null-check and return 0 when camera is null. */
     public static boolean screenShakeFixEnabled = true;
-    /** Read by QuakeMixin; true = let Quake die when damage >= health. */
-    public static boolean quakeLethalDamageKills = true;
     /** Read by SawQuakeKillHandler + mixins; true = Saw/FakePlayer kills Quake instantly. */
     public static boolean quakeSawKillEnabled = true;
 
@@ -35,7 +29,6 @@ public class Config
     static void onLoad(final ModConfigEvent event)
     {
         screenShakeFixEnabled = SCREEN_SHAKE_FIX.get();
-        quakeLethalDamageKills = QUAKE_LETHAL_DAMAGE_KILLS.get();
         quakeSawKillEnabled = QUAKE_SAW_KILL.get();
     }
 }
