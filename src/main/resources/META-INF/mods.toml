@@ -45,7 +45,7 @@ authors="${mod_authors}" #optional
 description='''${mod_description}'''
 
 [[mixins]]
-config="${mod_id}.mixins.json"
+config="species_fix.mixins.json"
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.${mod_id}]] #optional

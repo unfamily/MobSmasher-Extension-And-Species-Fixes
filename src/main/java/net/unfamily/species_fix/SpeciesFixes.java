@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 @Mod(SpeciesFixes.MODID)
 public class SpeciesFixes
 {
-    public static final String MODID = "species_fix";
+    public static final String MODID = "mobsmash_ext_species_fix";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public SpeciesFixes(FMLJavaModLoadingContext context)
