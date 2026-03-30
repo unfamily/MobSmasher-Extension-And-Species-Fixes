@@ -1,0 +1,9 @@
+{
+  "block.mobsmash_ext_species_fix.soul_inhibitor": "Inibitore di Anime",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.output_on": "Inibitore di Anime: ACCESO",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.output_off": "Inibitore di Anime: SPENTO",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.pulse": "Modalità redstone: Impulso (commuta sul fronte di salita)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.manual": "Modalità redstone: Manuale (il redstone non cambia ON/OFF)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.high": "Modalità redstone: Alto (ACCESO se alimentato)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.low": "Modalità redstone: Basso (ACCESO se non alimentato)"
+}

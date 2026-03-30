@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "forbidden_arcanus"
+    }
+  ],
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:ingots/deorum"
+    },
+    "B": {
+      "tag": "forge:gems/arcane_crystal"
+    }
+  },
+  "result": {
+    "item": "mobsmash_ext_species_fix:soul_inhibitor"
+  }
+}

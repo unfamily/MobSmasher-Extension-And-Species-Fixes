@@ -1,0 +1,9 @@
+{
+  "block.mobsmash_ext_species_fix.soul_inhibitor": "Soul Inhibitor",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.output_on": "Soul Inhibitor: ON",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.output_off": "Soul Inhibitor: OFF",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.pulse": "Redstone mode: Pulse (toggle on rising edge)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.manual": "Redstone mode: Manual (redstone ignored for ON/OFF)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.high": "Redstone mode: High (ON when powered)",
+  "message.mobsmash_ext_species_fix.soul_inhibitor.mode.low": "Redstone mode: Low (ON when unpowered)"
+}

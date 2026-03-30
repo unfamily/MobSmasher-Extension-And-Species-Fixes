@@ -24,8 +24,13 @@ public class SpeciesFixes
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
+        net.unfamily.species_fix.registry.ModBlocks.BLOCKS.register(modEventBus);
+        net.unfamily.species_fix.registry.ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        net.unfamily.species_fix.registry.ModItems.ITEMS.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SawQuakeKillHandler());
+        MinecraftForge.EVENT_BUS.register(new SoulInhibitorSpawnHandler());
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
