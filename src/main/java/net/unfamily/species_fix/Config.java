@@ -25,31 +25,17 @@ public class Config
                     ),
                     o -> o instanceof String);
 
-    private static final ForgeConfigSpec.BooleanValue SOUL_INHIBITOR_ENABLED = BUILDER
-            .comment("When true, Soul Inhibitor prevents Forbidden Arcanus Lost Soul spawns in its area.")
-            .define("010_soulInhibitorEnabled", true);
-
-    private static final ForgeConfigSpec.IntValue SOUL_INHIBITOR_RADIUS = BUILDER
-            .comment("Radius (in blocks) around a Soul Inhibitor where Lost Soul spawns are prevented.")
-            .defineInRange("011_soulInhibitorRadius", 16, 1, 64);
-
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     /** Read by ScreenShakeEventMixin; true = apply null-check and return 0 when camera is null. */
     public static boolean screenShakeFixEnabled = true;
     /** Read by SawQuakeKillHandler + mixins; set of entity IDs (modid:entity) killed instantly by Saw/FakePlayer. */
     public static java.util.Set<ResourceLocation> sawKillEntityIds = java.util.Set.of();
-    /** Read by SoulInhibitorSpawnHandler; true = prevent Lost Soul spawns near Soul Inhibitor. */
-    public static boolean soulInhibitorEnabled = true;
-    /** Read by SoulInhibitorSpawnHandler; radius for scanning Soul Inhibitor blocks. */
-    public static int soulInhibitorRadius = 16;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
         screenShakeFixEnabled = SCREEN_SHAKE_FIX.get();
-        soulInhibitorEnabled = SOUL_INHIBITOR_ENABLED.get();
-        soulInhibitorRadius = SOUL_INHIBITOR_RADIUS.get();
         java.util.List<? extends String> raw = SAW_KILL_ENTITIES.get();
         java.util.Set<ResourceLocation> parsed = new java.util.HashSet<>();
         for (String s : raw) {

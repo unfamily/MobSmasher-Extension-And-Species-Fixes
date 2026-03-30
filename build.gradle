@@ -116,9 +116,6 @@ repositories {
     flatDir {
         dir 'libs'
     }
-    maven {
-        url "https://cursemaven.com"
-    }
 }
 
 mixin {
@@ -142,9 +139,6 @@ dependencies {
 
     // Mandatory dependency: Species (local jar in libs/ - e.g. species-3.5.jar)
     implementation fg.deobf("blank:species:3.5")
-
-    // Optional dependency: Forbidden Arcanus (CurseMaven). This mod does not hard-require it at runtime.
-    implementation fg.deobf("curse.maven:forbidden-arcanus-309858:5198323")
 
     // Mixin (Forge bundles at runtime; we need API + processor for our mixins)
     implementation "org.spongepowered:mixin:0.8.5"
