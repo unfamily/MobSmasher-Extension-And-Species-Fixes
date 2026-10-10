@@ -3,9 +3,11 @@
     "package": "net.unfamily.species_fix.mixin",
     "compatibilityLevel": "JAVA_17",
     "refmap": "species_fix.refmap.json",
+    "plugin": "net.unfamily.species_fix.mixin.SpeciesFixesMixinPlugin",
     "mixins": [
         "QuakeMixin",
-        "PlayerAttackQuakeRedirectMixin"
+        "PlayerAttackQuakeRedirectMixin",
+        "LimpetMixin"
     ],
     "client": [
         "ScreenShakeEventMixin"

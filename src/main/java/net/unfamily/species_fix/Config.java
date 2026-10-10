@@ -33,6 +33,10 @@ public class Config
             .comment("Block radius (axis-aligned cube) for chunk registration; all chunks intersecting the cube get coverage. Not a sphere.")
             .defineInRange("011_soulInhibitorRadius", 16, 1, 128);
 
+    private static final ForgeConfigSpec.BooleanValue LIMPET_FARM_SOFT_SCARE = BUILDER
+            .comment("When true: Limpet scared pose/shell stay, but travel no longer zeros XZ so Fans/vector plates/conveyors can move them. Player/entity push still blocked by Species isPushable.")
+            .define("020_limpetFarmSoftScare", true);
+
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     /** Read by ScreenShakeEventMixin; true = apply null-check and return 0 when camera is null. */
@@ -43,6 +47,8 @@ public class Config
     public static boolean soulInhibitorEnabled = true;
     /** Half-size of the axis-aligned cube (in blocks) for chunk coverage around each active inhibitor. */
     public static int soulInhibitorRadius = 16;
+    /** Read by LimpetMixin; when true, skip Limpet travel XZ freeze while keeping entity push block. */
+    public static boolean limpetFarmSoftScare = true;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
@@ -50,6 +56,7 @@ public class Config
         screenShakeFixEnabled = SCREEN_SHAKE_FIX.get();
         soulInhibitorEnabled = SOUL_INHIBITOR_ENABLED.get();
         soulInhibitorRadius = SOUL_INHIBITOR_RADIUS.get();
+        limpetFarmSoftScare = LIMPET_FARM_SOFT_SCARE.get();
         java.util.List<? extends String> raw = SAW_KILL_ENTITIES.get();
         java.util.Set<ResourceLocation> parsed = new java.util.HashSet<>();
         for (String s : raw) {

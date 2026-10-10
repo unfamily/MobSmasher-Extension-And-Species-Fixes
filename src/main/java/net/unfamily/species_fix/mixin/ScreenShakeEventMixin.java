@@ -6,14 +6,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.ninni.species.client.screen.ScreenShakeEvent;
-
 /**
  * Prevents NPE when cameraEntity is null (e.g. during loading or in some modpack setups).
  * Species calls getDegree(cameraEntity, partialTicks) from ClientEvents.clientTick without
  * null-checking mc.getCameraEntity().
+ * String target keeps this mixin loadable when Species is absent (plugin skips apply).
  */
-@Mixin(value = ScreenShakeEvent.class, remap = false)
+@Mixin(targets = "com.ninni.species.client.screen.ScreenShakeEvent", remap = false)
 public class ScreenShakeEventMixin {
 
     static {
